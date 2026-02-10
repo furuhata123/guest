@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Guestbook</title>
+
+    <link rel="stylesheet" href="./form.css">
+  </head>
+  <body>
+    <div class="guestbook-box">
+      <h1>
+        ---୨୧ ---Sign my guestbook!---୨୧ ---</h1>
+      <form name="guestbook" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLScMy8iJBW0Y3skiTfBLgUHoQUM4Y7CvlZkX3zRvLOnEOrqFrQ/formResponse" id="guestbook">
+        <input type="hidden" name="entry.1710856598" id="localtime">
+
+        <input type="text" name="entry.844306277" placeholder="Name" required>
+        <textarea name="entry.830583771" placeholder="Message..." rows="4" required></textarea>
+
+        <!-- Draw something! -->
+        <h2>Draw something!</h2>
+        <canvas id="draw" width="300" height="150"></canvas>
+        <input type="hidden" name="entry.630485334" id="drawing-data"/>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <section class="messages">
+        <h2>--Messages ✮⋆｡°✩⋆˙</h2>
+        <div id="message-board">
+          <!-- 留言渲染到这里 -->
+        </div>
+        <h1>
+          --- End ---
+        </h1>
+      </section>
+
+    </div>
+
+  </body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://malsup.github.io/jquery.form.js"></script>
+  <script src="./guestbook.js"></script>
+
+</html>
