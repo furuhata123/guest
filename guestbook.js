@@ -88,7 +88,7 @@ function renderMessages(messages) {
     if (reply) {
       const replyDiv = document.createElement("div");
       replyDiv.className = "reply";
-      replyDiv.textContent = `Reply：${reply}`;
+      replyDiv.innerHTML = `<strong>Reply：</strong>${reply}`;
       card.appendChild(replyDiv);
     }
 
@@ -106,7 +106,7 @@ fetch('https://script.google.com/macros/s/AKfycby04ZVpJSOEWR6dpMJ7eeF4H_9J1LPNe1
     renderMessages(messages.reverse());
   })
   .catch(err => {
-    console.warn('Fetch 失败，加载本地测试数据', err);
+    console.warn('Fetch失败，加载本地测试数据', err);
     const mockMessages = [
       {
         name: "Neo",
