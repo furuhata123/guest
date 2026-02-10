@@ -55,8 +55,7 @@ const replies = {
   "Test|test": "Thank you for testing. It wasn't completely set up before... It's live on https://voidhead.net/guest/ now. (I moved to GitHub)"
 };
 
-const key = `${msg.name}|${msg.message}`;
-const reply = replies[key] ?? "";
+
 
 //handle no drawing comment
 const knownEmptyDrawings = [
