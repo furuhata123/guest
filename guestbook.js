@@ -50,6 +50,13 @@ document
             .value = canvas.toDataURL("image/png");
     });
 
+//reply diction
+const replies = {
+  "Test|test": "Thank you for testing. It wasn't completely set up before... It's live on https://voidhead.net/guest/ now. (I moved to GitHub)"
+};
+
+const key = `${msg.name}|${msg.message}`;
+const reply = replies[key] ?? "";
 
 function renderMessages(messages) {
     const board = document.getElementById("message-board");
@@ -61,7 +68,11 @@ function renderMessages(messages) {
         <strong>${msg.name}</strong>&nbsp;<span class="time">${msg.localtime ?? ""}</span>
         <br>
         ${msg.message}
-        ${msg.drawing ? `<img class="drawing-preview" src="${msg.drawing}" alt="drawing"/>` : ""}
+        ${msg.drawing && msg.drawing.length > 100
+          ? `<img class="drawing-preview" src="${msg.drawing}" alt="drawing" />`
+          : ""}
+            const reply = replies[key] ?? ""; 
+            card.innerHTML += reply ? `<div class="reply">Reply：${reply}</div>` : "";
       `;
       board.appendChild(card);
     });
