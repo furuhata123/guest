@@ -67,28 +67,25 @@ function renderMessages(messages) {
     });
   }
   
-  fetch('messages.json')
-    .then(res => {
-      if (!res.ok) throw new Error('fetch failed');
-      return res.json();
-    })
-    .then(messages => {
-        messages.reverse().forEach(msg => {
-            renderMessages(messages);
-        })
-      
-    })
-    .catch(err => {
-      console.warn('Fetch 失败，加载本地测试数据', err);
-      // fallback mock
-      const mockMessages = [
-        {
-          name: "Neo",
-          localtime: "local test",
-          message: "这是本地测试消息",
-          drawing: "data:image/gif;base64,R0lGODlhAQABAAAAACw="
-        }
-      ];
-      renderMessages(mockMessages);
-    });
+fetch('https://script.google.com/macros/s/AKfycby04ZVpJSOEWR6dpMJ7eeF4H_9J1LPNe1rz5GyaMDx-Ug37FlbBfAIrCzp3ftSivuSR/exec')
+  .then(res => {
+    if (!res.ok) throw new Error('fetch failed');
+    return res.json();
+  })
+  .then(messages => {
+    renderMessages(messages.reverse());
+  })
+  .catch(err => {
+    console.warn('Fetch 失败，加载本地测试数据', err);
+    const mockMessages = [
+      {
+        name: "Neo",
+        localtime: "local test",
+        message: "这是本地测试消息",
+        drawing: "data:image/gif;base64,R0lGODlhAQABAAAAACw="
+      }
+    ];
+    renderMessages(mockMessages);
+  });
+
   
