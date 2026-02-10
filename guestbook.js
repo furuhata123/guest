@@ -67,7 +67,7 @@ function renderMessages(messages) {
     });
   }
   
-  fetch('${basePath}/messages.json')
+  fetch('guest/messages.json')
     .then(res => {
       if (!res.ok) throw new Error('fetch failed');
       return res.json();
@@ -75,6 +75,7 @@ function renderMessages(messages) {
     .then(messages => {
       renderMessages(messages);
     })
+    .then(messages => renderMessages([...messages].reverse()))
     .catch(err => {
       console.warn('Fetch 失败，加载本地测试数据', err);
       // fallback mock
