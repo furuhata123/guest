@@ -67,7 +67,7 @@ function renderMessages(messages) {
     });
   }
   
-  fetch('guest/messages.json')
+  fetch('/messages.json')
     .then(res => {
       if (!res.ok) throw new Error('fetch failed');
       return res.json();
